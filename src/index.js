@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import reducer from './reducers'
 import middleware from './middleware'
 import reportWebVitals from './reportWebVitals.js';
+import 'bootstrap/dist/css/bootstrap.css';
 import { createStore } from 'redux';
 
 

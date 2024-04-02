@@ -26,9 +26,9 @@ export const Login = () => {
         e.preventDefault()
 
         let uId = state.selectedUser
-        let user = users.find(x => x.id === uId)
+        let user = Object.values(users).find(x => x.id === uId)
         let name = user.name
-        let picture = picture.avatarURL
+        let picture = user.avatarURL
         dispatch(loginAuthUser(uId, name, picture))
         setState((prevState) => ({
             ...prevState,
