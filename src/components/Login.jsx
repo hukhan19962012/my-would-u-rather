@@ -48,7 +48,6 @@ export const Login = () => {
     return (
     <>
         <h3 className='text-center'>Please login:</h3>
-        <br></br>
         {loading ? null :
             <>
                 <div className='row justify-content-center'>

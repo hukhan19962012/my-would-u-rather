@@ -5,6 +5,8 @@ import { handleData } from '../func/shared';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Login } from './Login';
+import AuthedRouter from './AuthedRouter';
+import { Logout } from './Logout';
 
 const questionsPrefix = '/questions/'
 
@@ -20,10 +22,6 @@ export const App = () => {
   }, [])
 
   useEffect(() => {
-    // if ((Object.keys(users).length === 0 && users.constructor === Object) || (Object.keys(questions).length === 0 && questions.constructor === Object)) {
-    //   isLoading(true)
-    // }
-
     if (authUser !== null) {
       isLoggedIn(true)
     }
@@ -38,6 +36,7 @@ export const App = () => {
           <>
             <Routes>
               <Route exact path='/login' Component={Login} />
+              <AuthedRouter exact path='/logout' Component={Logout} isLoggedIn={loggedIn} />
               {/* <Route component={ErrorPage} /> */}
             </Routes>
           </>
