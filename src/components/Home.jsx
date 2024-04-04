@@ -32,7 +32,7 @@ export const Home = () => {
                         <h5 class="card-title">{q.author}</h5>
                         <p class="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
                         </div>
-                        <Link to={`/questions/${q?.id}`} className='link-show btn btn-primary' key={q?.id}>show</Link>
+                        <Link to={`/questions/${q?.id}`} className='link-show btn btn-success' key={q?.id}>show</Link>
                     </div>
                 </div>
                 ))}
@@ -48,7 +48,7 @@ export const Home = () => {
                         <h5 class="card-title">{q.author}</h5>
                         <p class="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
                         </div>
-                        <Link to={`/questions/${q?.id}`} className='link-show btn btn-primary' key={q?.id}>show</Link>
+                        <Link to={`/questions/${q?.id}`} className='link-show btn btn-success' key={q?.id}>show</Link>
                     </div>
                 </div>
                 ))}
