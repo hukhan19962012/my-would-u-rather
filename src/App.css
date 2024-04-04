@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -44,23 +45,37 @@
 }
 
 .questions {
-  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
 }
+
+.card-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .questions .questionBox {
   color: white;
 }
+
 .questions .questionBox:hover {
   text-decoration: none !important;
 }
+
 .questions .questionBox .author {
   font-size: 20px;
 }
+
 .questions .questionBox .wouldRather {
   font-size: 26px;
 }
+
 .questions .questionBox .option {
   font-size: 26px;
 }
+
 .questions .questionBox .or {
   font-size: 34px;
 }
@@ -74,12 +89,15 @@
   border-width: 20px !important;
   color: white;
 }
+
 .leaderboard .index {
   font-size: 40px;
 }
+
 .leaderboard .name {
   font-size: 24px;
 }
+
 .leaderboard .number {
   font-size: 42px;
 }
@@ -93,5 +111,8 @@
   font-size: 20px;
 }
 
-/*# sourceMappingURL=style.css.map */
+.link-show{
+  width: 100%;
+}
 
+/*# sourceMappingURL=style.css.map */

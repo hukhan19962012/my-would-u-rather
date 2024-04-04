@@ -1,12 +1,15 @@
 import { getData, saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { receiveUsers, addUserQuestion, addUserAnswer } from './users'
-import { receiveQuestions,addQuestion, updateVotes } from './questions'
+import { receiveQuestions, addQuestion, updateVotes } from './questions'
 
 
 
 export const handleData = () => {
   return (dispatch) => {
-    return getData().then(({ users, questions }) => { dispatch(receiveUsers(users)); dispatch(receiveQuestions(questions)) })
+    return getData().then(({ users, questions }) => {
+      dispatch(receiveUsers(users))
+      dispatch(receiveQuestions(questions))
+    })
   }
 }
 

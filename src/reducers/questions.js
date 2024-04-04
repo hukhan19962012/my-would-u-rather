@@ -3,7 +3,7 @@ import { QUESTIONS_RECIVE, QUESTION_ADD, VOTES_UPDATE } from "../utils/constants
 export const questions = (state = {}, action) => {
     switch (action.type) {
         case QUESTIONS_RECIVE:
-            return { ...state, ...action.question }
+            return { ...state, ...action.questions }
         case QUESTION_ADD:
             return { ...state, [action.question.id]: action.question }
         case VOTES_UPDATE:
