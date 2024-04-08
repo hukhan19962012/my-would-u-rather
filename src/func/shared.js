@@ -17,11 +17,12 @@ export const handleNewQuestion = (optionOne, optionTwo) => {
   return (dispatch, getState) => {
 
     let { authUser } = getState()
+    console.log(authUser)
     let questionId = ''
 
     return saveQuestion({
-      optionOne,
-      optionTwo,
+      optionOneText: optionOne,
+      optionTwoText: optionTwo,
       author: authUser.id
     })
       .then((result) => {

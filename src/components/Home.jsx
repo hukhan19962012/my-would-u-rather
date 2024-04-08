@@ -1,12 +1,11 @@
 import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import _ from 'lodash'
 
 export const Home = () => {
 
     const { authUser, users, questions } = useSelector(state => state)
-    const dispatch = useDispatch()
     const navigate = useNavigate()
 
 

@@ -13,6 +13,7 @@ import { Login } from './Login';
 import { Logout } from './Logout';
 import { NavBar } from './NavBar';
 import { Home } from './Home';
+import { NewQuest } from './NewQuest';
 
 const questionsPrefix = '/questions/'
 
@@ -23,7 +24,6 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(handleData())
-    console.log('isRunHere')
   }, [dispatch])
 
 
@@ -32,8 +32,9 @@ export const App = () => {
       <NavBar />
       <Routes>
         <Route exact path='/' element={<Home />} />
-        <Route exact path='/login' Component={Login} />
+        <Route exact path='/login' element={<Login />} />
         <Route exact path='/logout' element={<Logout />} />
+        <Route exact path='/add' element={<NewQuest />} />
         {/* <Route component={ErrorPage} /> */}
       </Routes>
     </>
