@@ -25,7 +25,6 @@ export const QuestionDetail = () => {
         return user.avatarURL
     }
     const isAnswered = Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)
-
     useEffect(() => {
         if (authUser === null) {
             navigate('/login')
@@ -66,7 +65,7 @@ export const QuestionDetail = () => {
                     <div className="card-info mb-3">
                         <h5 class="card-title">{q.optionOne.text}{` (${Math.round(optionOnePercentage)}%)`}</h5>
                     </div>
-                    <div className="bg-success text-light">{`${q.optionOne.votes.length}/${usersNumber} voted`}</div>
+                    <div className="bg-success text-light">{`${q.optionOne.votes.length}/${usersNumber} voted ${q.optionOne.votes.includes(authUser.id) ? '(includes your vote)' : ''}`}</div>
                 </div>
             </div>
                 <div class="card" style={{ width: 'auto' }}>
@@ -74,7 +73,7 @@ export const QuestionDetail = () => {
                         <div className="card-info mb-3">
                             <h5 class="card-title">{q.optionTwo.text}{` (${Math.round(optionTwoPercentage)}%)`}</h5>
                         </div>
-                        <div className="bg-danger text-light">{`${q.optionTwo.votes.length}/${usersNumber} voted`}</div>
+                        <div className="bg-danger text-light">{`${q.optionTwo.votes.length}/${usersNumber} voted ${q.optionTwo.votes.includes(authUser.id) ? '(includes your vote)' : ''}`}</div>
                     </div>
                 </div></>}
 

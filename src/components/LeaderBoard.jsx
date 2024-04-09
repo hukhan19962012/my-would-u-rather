@@ -34,8 +34,8 @@ export const LeaderBoard = () => {
                                 <img src={x.avatarURL} alt={x.name} width="40" height="40" className='rounded mr-3' />
                                 {x.name}
                             </td>
-                            <td>{x.questions.length}</td>
                             <td>{Object.keys(x.answers).length}</td>
+                            <td>{x.questions.length}</td>
                         </tr>
                     ))}
                 </tbody>
