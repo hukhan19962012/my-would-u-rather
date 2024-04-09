@@ -6,5 +6,5 @@ export const VOTES_UPDATE = 'VOTES_UPDATE'
 export const USERS_RECIVE = 'USERS_RECIVE'
 export const USER_ANSWER_ADD = 'USER_ANSWER_ADD'
 export const USER_QUESTION_ADD = 'USER_QUESTION_ADD'
-
+export const questionsPrefix = '/questions/'
 

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { handleNewQuestion } from "../func/shared"
 
 export const NewQuest = () => {
-    const { authUser, users, questions } = useSelector(state => state)
+    const { authUser } = useSelector(state => state)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -42,15 +42,13 @@ export const NewQuest = () => {
                     </div>
                     <div className='row mb-3'>
                         <div className='col text-center'>
-                            or
+                           <h3> or</h3>
                         </div>
                     </div>
                     <div className="form-group mb-3">
                         <label htmlFor="inputTwo">Second option</label>
                         <input type="text" className="form-control" id="inputTwo" placeholder="Second option" value={optionTwo} onChange={(e) => setOptionTwo(e.target.value)} />
                     </div>
-
-                    <br></br>
 
                     <div className='row'>
                         <button type="button" className="btn btn-primary btn-lg mx-auto" disabled={optionOne === '' || optionTwo === ''} onClick={submitForm}>Add question</button>

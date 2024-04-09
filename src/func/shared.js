@@ -46,8 +46,8 @@ export const handleVoteAnswer = (questionId, option) => {
 
 
     return saveQuestionAnswer({
-      authUser: authUser.id,
-      questionId,
+      authedUser: authUser.id,
+      qid: questionId,
       answer: option,
     })
       .then(() => dispatch(updateVotes(questionId, option, authUser.id)))
