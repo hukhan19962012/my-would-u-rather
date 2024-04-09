@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
-import logo from '../logo.svg';
+import React, {  useEffect } from 'react';
+
 import '../App.css';
 import { handleData } from '../func/shared';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Route,
-  Navigate,
   Routes,
   useLocation,
 
