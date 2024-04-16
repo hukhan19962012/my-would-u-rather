@@ -24,8 +24,6 @@ import { ErrorPage } from './ErrorPage';
 export const App = () => {
   const location = useLocation()
   const dispatch = useDispatch()
-  const { questions } = useSelector(state => state)
-  const qId =location.pathname.substring(questionsPrefix.length)
   useEffect(() => {
     dispatch(handleData())
   }, [dispatch])
@@ -40,10 +38,8 @@ export const App = () => {
         <Route exact path='/logout' element={<Logout />} />
         <Route exact path='/add' element={<NewQuest />} />
         <Route exact path='/leaderboard' element={<LeaderBoard />} />
-        {
-                    Object.keys(questions).includes(qId) &&
-                      <Route path={`${questionsPrefix}:id`} element={<QuestionDetail/>}/>
-                  }
+        <Route path={`${questionsPrefix}:id`} element={<QuestionDetail/>}/>
+
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </>
