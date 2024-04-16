@@ -18,12 +18,14 @@ export const Home = () => {
     const showAvatar = (author) => {
         let user = _.pick(users, author)[author]
         return user.avatarURL
+        
     }
+
     return (
         <>
             <h1 className="text-center">Questions</h1>
             <div className="questions mb-5 mt-5 mx-auto">
-                {Object.values(questions).filter(q => !(Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id))).map(q => (
+                {Object.values(questions).filter(q => !(Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id))).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
                 <div class="card" style={{ width: '18rem' }}>
                     <img class="card-img-top" src={showAvatar(q.author)} alt="author" />
                     <div class="card-body">
@@ -39,7 +41,7 @@ export const Home = () => {
             </div>
             <h1 className="text-center">Done</h1>
             <div className="questions mb-5 mt-5 mx-auto">
-                {Object.values(questions).filter(q => Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)).map(q => (
+                {Object.values(questions).filter(q => Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
                 <div class="card" style={{ width: '18rem' }}>
                     <img class="card-img-top" src={showAvatar(q.author)} alt="author" />
                     <div class="card-body">
