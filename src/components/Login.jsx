@@ -1,10 +1,11 @@
 import { loginAuthUser } from '../func/authUser'
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 
 
 export const Login = () => {
+    const [searchParam] = useSearchParams()
     const [loading, isLoading] = useState(false)
     const [state, setState] = useState({ selectedUser: '', shouldRedirect: false })
     const handleChange = (id) => {
@@ -12,7 +13,7 @@ export const Login = () => {
     }
     const { users } = useSelector(state => state)
     const dispatch = useDispatch()
-    const {location} = useLocation()
+
 
     useEffect(() => {
 
@@ -36,13 +37,13 @@ export const Login = () => {
         }))
     }
 
-    let { from } = location?.pathname || { from: { pathname: '/' } }
-    if (from.pathname === '/login' || from.pathname === '/logout') {
-        from.pathname = '/'
+    let  from  = searchParam.get('returnUrl')
+    if (from === 'login' || from === 'logout' || from === 'home') {
+        from = ''
     }
 
     if (state.shouldRedirect === true) {
-        return <Navigate to={from} />
+        return <Navigate to={`/${from}`} />
     }
 
     return (

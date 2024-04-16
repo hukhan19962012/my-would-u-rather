@@ -11,7 +11,7 @@ export const Home = () => {
 
     useEffect(() => {
         if (authUser === null) {
-            navigate('/login')
+            navigate('/login?returnUrl=home')
         }
     }, [authUser, navigate])
 

@@ -9,7 +9,7 @@ export const LeaderBoard = () => {
 
     useEffect(() => {
         if (authUser === null) {
-            navigate('/login')
+            navigate('/login?returnUrl=leaderboard')
         }
     }, [authUser, navigate])
 
@@ -19,7 +19,7 @@ export const LeaderBoard = () => {
 
         <h3 className='text-center mb-3 mt-3'>Leader Board</h3>
         <div className="container">
-            <table class="table table-light table-striped">
+            <table className="table table-light table-striped">
                 <thead className="thead-light">
                     <tr>
                         <th scope="col" colSpan={3}>Name</th>
@@ -29,7 +29,7 @@ export const LeaderBoard = () => {
                 </thead>
                 <tbody>
                     {sortedUsers.map(x => (
-                        <tr >
+                        <tr key={x.id}>
                             <td colSpan={3}>
                                 <img src={x.avatarURL} alt={x.name} width="40" height="40" className='rounded mr-3' />
                                 {x.name}

@@ -14,7 +14,7 @@ export const NewQuest = () => {
 
     useEffect(() => {
         if (authUser === null) {
-            navigate('/login')
+            navigate('/login?returnUrl=add')
         }
     }, [authUser, navigate])
 

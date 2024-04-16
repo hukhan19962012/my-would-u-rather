@@ -27,7 +27,7 @@ export const QuestionDetail = () => {
     const isAnswered = Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)
     useEffect(() => {
         if (authUser === null) {
-            navigate('/login')
+            navigate(`/login?returnUrl=questions/${qId}`)
         }
     }, [authUser, navigate])
 

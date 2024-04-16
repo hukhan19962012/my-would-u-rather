@@ -17,6 +17,7 @@ import { NewQuest } from './NewQuest';
 import { LeaderBoard } from './LeaderBoard';
 import { QuestionDetail } from './QuestionDetail';
 import { questionsPrefix } from '../utils/constants';
+import { ErrorPage } from './ErrorPage';
 
 
 
@@ -44,7 +45,7 @@ export const App = () => {
                     Object.keys(questions).includes(qId) &&
                       <Route path={`${questionsPrefix}:id`} element={<QuestionDetail/>}/>
                   }
-        {/* <Route component={ErrorPage} /> */}
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </>
   )

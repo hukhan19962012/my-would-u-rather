@@ -14,19 +14,19 @@ export const NavBar = () => {
             <div className="navbar-collapse" id="nav">
                 <div className="navbar-nav">
                     <NavLink
-                        exact to="/"
-                        activeClassName={pathname === '/' ? 'active' : ''}
+                        to="/"
+                        activeclassname={pathname === '/' ? 'active' : ''}
                         className="nav-item nav-link">
                         Home
                     </NavLink>
                     <NavLink
-                        to="/add" activeClassName={pathname === '/add' ? 'active' : ''}
+                        to="/add" activeclassname={pathname === '/add' ? 'active' : ''}
                         className="nav-item nav-link">
                         Add Question
                     </NavLink>
                     <NavLink
                         to="/leaderboard"
-                        activeClassName={pathname === '/leaderboard' ? 'active' : ''}
+                        activeclassname={pathname === '/leaderboard' ? 'active' : ''}
                         className="nav-item nav-link">
                         Leaderboard
                     </NavLink>
