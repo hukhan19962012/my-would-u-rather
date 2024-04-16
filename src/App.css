@@ -114,3 +114,16 @@
 .link-show{
   width: 100%;
 }
+
+.react-tabs__tab-list{
+  padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    
+}
+
+.react-tabs__tab-list > li{
+  list-style-type: none;
+}

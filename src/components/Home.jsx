@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import _ from 'lodash'
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 
 export const Home = () => {
 
@@ -23,7 +24,13 @@ export const Home = () => {
 
     return (
         <>
-            <h1 className="text-center">Questions</h1>
+<Tabs>
+    <TabList>
+      <Tab><button className="btn btn-success"><h3>New</h3></button></Tab>
+      <Tab><button className="btn btn-secondary"><h3>Done</h3></button></Tab>
+    </TabList>
+    <TabPanel>
+    <h1 className="text-center">Questions</h1>
             <div className="questions mb-5 mt-5 mx-auto">
                 {Object.values(questions).filter(q => !(Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id))).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
                 <div class="card" style={{ width: '18rem' }}>
@@ -39,7 +46,9 @@ export const Home = () => {
                 ))}
 
             </div>
-            <h1 className="text-center">Done</h1>
+    </TabPanel>
+    <TabPanel>
+    <h1 className="text-center">Done</h1>
             <div className="questions mb-5 mt-5 mx-auto">
                 {Object.values(questions).filter(q => Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
                 <div class="card" style={{ width: '18rem' }}>
@@ -55,6 +64,10 @@ export const Home = () => {
                 ))}
 
             </div>
+    </TabPanel>
+  </Tabs>
+            
+            
 
         </>
     )
