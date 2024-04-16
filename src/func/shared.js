@@ -17,7 +17,6 @@ export const handleNewQuestion = (optionOne, optionTwo) => {
   return (dispatch, getState) => {
 
     let { authUser } = getState()
-    console.log(authUser)
     let questionId = ''
 
     return saveQuestion({

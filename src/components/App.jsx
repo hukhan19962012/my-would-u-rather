@@ -22,7 +22,6 @@ import { ErrorPage } from './ErrorPage';
 
 
 export const App = () => {
-
   const location = useLocation()
   const dispatch = useDispatch()
   const { questions } = useSelector(state => state)

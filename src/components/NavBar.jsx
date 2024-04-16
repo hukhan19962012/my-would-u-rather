@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom"
 
 export const NavBar = () => {
     const authUser = useSelector(state => state.authUser)
-    const { pathname } = useLocation
+    const { pathname } = useLocation()
     const loggedIn = authUser !== null
 
     return (
