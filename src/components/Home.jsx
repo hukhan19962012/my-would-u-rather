@@ -26,19 +26,19 @@ export const Home = () => {
         <>
 <Tabs>
     <TabList>
-      <Tab><button className="btn btn-success"><h3>New</h3></button></Tab>
-      <Tab><button className="btn btn-secondary"><h3>Done</h3></button></Tab>
+      <Tab key={'new'}><button className="btn btn-success"><h3>New</h3></button></Tab>
+      <Tab key={'done'}><button className="btn btn-secondary"><h3>Done</h3></button></Tab>
     </TabList>
-    <TabPanel>
+    <TabPanel key={'new-tab'}>
     <h1 className="text-center">Questions</h1>
             <div className="questions mb-5 mt-5 mx-auto">
                 {Object.values(questions).filter(q => !(Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id))).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
-                <div class="card" style={{ width: '18rem' }}>
-                    <img class="card-img-top" src={showAvatar(q.author)} alt="author" />
-                    <div class="card-body">
+                <div className="card" style={{ width: '18rem' }}  key={q?.id}>
+                    <img className="card-img-top" src={showAvatar(q.author)} alt="author" />
+                    <div className="card-body">
                         <div className="card-info mb-3">
-                        <h5 class="card-title">{q.author}</h5>
-                        <p class="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
+                        <h5 className="card-title">{q.author}</h5>
+                        <p className="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
                         </div>
                         <Link to={`/questions/${q?.id}`} className='link-show btn btn-success' key={q?.id}>show</Link>
                     </div>
@@ -47,16 +47,16 @@ export const Home = () => {
 
             </div>
     </TabPanel>
-    <TabPanel>
+    <TabPanel key={'question-tab'}>
     <h1 className="text-center">Done</h1>
             <div className="questions mb-5 mt-5 mx-auto">
                 {Object.values(questions).filter(q => Object.values(q.optionOne.votes).includes(authUser?.id) || Object.values(q.optionTwo.votes).includes(authUser?.id)).sort((a,b,) => b.timestamp - a.timestamp).map(q => (
-                <div class="card" style={{ width: '18rem' }}>
-                    <img class="card-img-top" src={showAvatar(q.author)} alt="author" />
-                    <div class="card-body">
+                <div className="card" style={{ width: '18rem' }} key={q?.id}>
+                    <img className="card-img-top" src={showAvatar(q.author)} alt="author" />
+                    <div className="card-body">
                         <div className="card-info mb-3">
-                        <h5 class="card-title">{q.author}</h5>
-                        <p class="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
+                        <h5 className="card-title">{q.author}</h5>
+                        <p className="card-text">{new Date(q.timestamp).toLocaleDateString()}</p>
                         </div>
                         <Link to={`/questions/${q?.id}`} className='link-show btn btn-success' key={q?.id}>show</Link>
                     </div>
@@ -66,9 +66,6 @@ export const Home = () => {
             </div>
     </TabPanel>
   </Tabs>
-            
-            
-
         </>
     )
 }
