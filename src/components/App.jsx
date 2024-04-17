@@ -2,11 +2,10 @@ import React, {  useEffect } from 'react';
 
 import '../App.css';
 import { handleData } from '../func/shared';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {
   Route,
-  Routes,
-  useLocation,
+  Routes
 
 } from "react-router-dom";
 import { Login } from './Login';
@@ -22,7 +21,6 @@ import { ErrorPage } from './ErrorPage';
 
 
 export const App = () => {
-  const location = useLocation()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(handleData())
